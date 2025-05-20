@@ -1,5 +1,7 @@
 import { HugeiconsIcon } from '@hugeicons/react';
-import { Calculator01Icon, MuslimIcon, SaveMoneyDollarIcon } from '@hugeicons/core-free-icons';
+import { Calculator01Icon, SaveMoneyDollarIcon } from '@hugeicons/core-free-icons';
+import Button from '../common/Button';
+import TopBannerStats from '../common/TopBannerStats';
 
 const Hero = () => {
 	return (
@@ -11,17 +13,7 @@ const Hero = () => {
 			<div className="relative z-10">
 				{/* Top Banner */}
 				<div className="flex justify-center w-full mt-40">
-					<div className="flex items-center gap-2 px-6 py-2 border border-white/10 rounded-lg bg-white/5 backdrop-blur-sm">
-						<span className="flex items-center">
-							<HugeiconsIcon
-								icon={MuslimIcon}
-								size={24}
-								color="currentColor"
-								strokeWidth={1.5}
-							/>
-						</span>
-						<span className="text-sm">Reaching 100k+ Muslims Nationwide</span>
-					</div>
+					<TopBannerStats />
 				</div>
 
 				{/* Main Hero Content */}
@@ -37,7 +29,11 @@ const Hero = () => {
 						</p>
 						{/* CTA Buttons */}
 						<div className="flex flex-col sm:flex-row gap-4 justify-center">
-							<button className="bg-white text-[#002828] px-8 py-3 rounded-lg text-lg font-medium inline-flex items-center justify-center gap-2 hover:bg-white/90 transition-colors">
+							<Button
+								variant="primary"
+								size="large"
+								className="inline-flex items-center justify-center gap-2"
+							>
 								<HugeiconsIcon
 									icon={Calculator01Icon}
 									size={24}
@@ -45,8 +41,12 @@ const Hero = () => {
 									strokeWidth={1.5}
 								/>
 								Calculate Zakaat
-							</button>
-							<button className="border border-white text-white px-8 py-3.5 rounded-lg text-lg font-medium hover:bg-white/10 transition-colors inline-flex items-center justify-center gap-2">
+							</Button>
+							<Button
+								variant="secondary"
+								size="large"
+								className="inline-flex items-center justify-center gap-2"
+							>
 								<HugeiconsIcon
 									icon={SaveMoneyDollarIcon}
 									size={24}
@@ -54,10 +54,14 @@ const Hero = () => {
 									strokeWidth={1.5}
 								/>
 								Give Donations
-							</button>
-							<button className="border border-white text-white px-8 py-3.5 rounded-lg text-lg font-medium hover:bg-white/10 transition-colors inline-flex items-center justify-center gap-2">
+							</Button>
+							<Button
+								variant="secondary"
+								size="large"
+								className="inline-flex items-center justify-center gap-2"
+							>
 								Request Assistance
-							</button>
+							</Button>
 						</div>
 					</div>
 

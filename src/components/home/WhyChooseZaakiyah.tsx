@@ -5,6 +5,7 @@ import {
 	UserMultiple02Icon,
 } from '@hugeicons/core-free-icons';
 import { HugeiconsIcon } from '@hugeicons/react';
+import IconWithBg from '../common/IconWithBg';
 
 const features = [
 	{
@@ -41,14 +42,15 @@ const WhyChooseZaakiyah = () => {
 							key={idx}
 							className="bg-white rounded-2xl border border-[#E0F2F2] p-6 text-left hover:shadow-md transition-all"
 						>
-							<div className="bg-[#E0F2F2] rounded-full p-3 inline-block mb-4">
+							<IconWithBg bgColor="bg-[#E0F2F2]" className="p-3 inline-block mb-4">
 								<HugeiconsIcon
 									icon={feature.icon}
 									size={32}
 									color="#002828"
 									strokeWidth={1.5}
 								/>
-							</div>
+							</IconWithBg>
+
 							<h3 className="text-2xl font-semibold mb-2">{feature.title}</h3>
 							<p className="text-[#002828]/70 text-xl">{feature.desc}</p>
 						</div>
