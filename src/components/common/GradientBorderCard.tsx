@@ -10,8 +10,8 @@ interface GradientBorderCardProps {
 const GradientBorderCard = ({
 	children,
 	className = '',
-	bgGradientFrom = '#0D2B2D', // Default value
-	bgGradientTo = '#0D2B2D', // Default value
+	bgGradientFrom = '#0D2B2D',
+	bgGradientTo = '#0D2B2D',
 }: GradientBorderCardProps) => {
 	const cardStyle = {
 		borderRight: '1px solid #003437',
