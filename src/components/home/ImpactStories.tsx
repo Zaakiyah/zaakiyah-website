@@ -79,10 +79,6 @@ const ImpactStories = () => {
 					</div>
 				</div>
 
-				{/* "Fill" label as shown in design (for dev purposes) */}
-				<div className="text-center text-sm text-blue-500 mt-2 md:hidden">
-					Fill (1200) × 303 Hub
-				</div>
 			</div>
 		</section>
 	);
