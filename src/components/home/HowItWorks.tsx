@@ -1,3 +1,5 @@
+import GradientBorderCard from '../common/GradientBorderCard';
+
 const steps = [
 	{
 		number: '1',
@@ -31,8 +33,7 @@ const HowItWorks = () => {
 							border: '1px solid transparent',
 							borderLeft: '1px solid #00939D',
 							background:
-									'linear-gradient(270deg, #0D2B2D, #0D2B2D) padding-box, linear-gradient(to right, #00939D, #003437) border-box',
-							
+								'linear-gradient(270deg, #0D2B2D, #0D2B2D) padding-box, linear-gradient(to right, #00939D, #003437) border-box',
 						}}
 					>
 						STEP BY STEP
@@ -43,16 +44,11 @@ const HowItWorks = () => {
 				{/* Steps */}
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 					{steps.map((step, index) => (
-						<div
+						<GradientBorderCard
 							key={index}
-							className="relative rounded-2xl p-8 md:p-10 bg-[#0D2B2D] overflow-hidden"
-							style={{
-								borderRight: '1px solid #003437',
-								border: '1px solid transparent',
-								borderLeft: '1px solid #00939D',
-								background:
-									'linear-gradient(270deg, #0D2B2D, #0D2B2D) padding-box, linear-gradient(to right, #00939D, #003437) border-box',
-							}}
+							bgGradientFrom="#0D2B2D"
+							bgGradientTo="#0D2B2D"
+							className="p-8 md:p-10 bg-[#0D2B2D]"
 						>
 							{/* Step Number */}
 							<div className="text-[72px] md:text-[96px] font-extrabold bg-gradient-to-b from-white to-[#0D2B2D] text-transparent -mb-3 bg-clip-text leading-none z-10 relative">
@@ -68,7 +64,7 @@ const HowItWorks = () => {
 									{step.description}
 								</p>
 							</div>
-						</div>
+						</GradientBorderCard>
 					))}
 				</div>
 			</div>

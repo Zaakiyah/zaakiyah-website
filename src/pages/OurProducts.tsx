@@ -1,19 +1,16 @@
 import { PageHeader } from '../components/common/PageHeader';
-import TopBannerStats from '../components/common/TopBannerStats';
 import { InfoCard } from '../components/common/InfoCard';
 import { Calculator01Icon } from '@hugeicons/core-free-icons';
 import FAQ from '../components/home/FAQ';
 
-export function About() {
+export function OurProducts() {
 	return (
 		<>
 			<PageHeader
-				title="About Zaakiyah"
-				subtitle="Empowering Muslims to fulfill their Zakaat obligations with confidence and ease."
+				title="Our Products"
+				subtitle="Comprehensive solutions for managing your zakaat and charitable giving"
 			>
-				<div className="flex justify-center w-full mb-3">
-					<TopBannerStats />
-				</div>
+				<div className="mt-30"></div>
 			</PageHeader>
 
 			{/* Mission & Vision Section */}

@@ -10,9 +10,9 @@ const Hero = () => {
 			<div className="absolute inset-0 bg-[url('../src/assets/hero-bg.svg')] bg-cover bg-center opacity-70"></div>
 
 			{/* Content container */}
-			<div className="relative z-10">
+			<div className="relative z-10 mt-40">
 				{/* Top Banner */}
-				<div className="flex justify-center w-full mt-40">
+				<div className="flex justify-center w-full">
 					<TopBannerStats />
 				</div>
 
