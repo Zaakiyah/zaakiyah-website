@@ -154,6 +154,9 @@ const Footer = () => {
 				{/* Bottom Bar */}
 				<div className="mt-16 pt-8 border-t border-gray-300">
 					<div className="flex flex-col md:flex-row justify-between items-center gap-4">
+						<p className="text-gray-600 font-medium">
+							© {new Date().getFullYear()} Zaakiyah Incorporated. All rights reserved.
+						</p>
 						<div className="flex items-center gap-4 font-medium">
 							<a href="/privacy" className="text-gray-600 hover:text-gray-900">
 								Privacy Policy
@@ -165,9 +168,6 @@ const Footer = () => {
 								Legal
 							</a>
 						</div>
-						<p className="text-gray-600 font-medium">
-							© {new Date().getFullYear()} Zaakiyah Incorporated. All rights reserved.
-						</p>
 						{/* Social Media Icons */}
 						<div className="flex items-center gap-4">
 							<a href="#" className="text-gray-600 hover:text-gray-900">

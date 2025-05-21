@@ -1,5 +1,6 @@
 import { ArrowRight02Icon } from '@hugeicons/core-free-icons';
 import { HugeiconsIcon } from '@hugeicons/react';
+import IconWithBg from '../common/IconWithBg';
 
 const story = {
 	quote: 'I cannot put into words how much this Zakaat donation has meant to me & my family.',
@@ -40,7 +41,6 @@ const ImpactStories = () => {
 					</button>
 				</div>
 
-				{/* Main content box - matches the blue outline in the design */}
 				<div className="grid grid-cols-1 md:grid-cols-5 gap-8">
 					{/* Left side - Quote and profile */}
 					<div className="md:col-span-3">
@@ -51,12 +51,15 @@ const ImpactStories = () => {
 							</blockquote>
 						</div>
 
-						{/* Profile */}
 						<div className="flex items-center">
-							<div className="w-14 h-14 rounded-full bg-teal-500 flex items-center justify-center text-white mr-4 text-xl">
+							<IconWithBg
+								gradientFrom="#00939D"
+								gradientTo="#9EDDFF"
+								className="w-14 h-14"
+							>
 								{story.avatar}
-							</div>
-							<div>
+							</IconWithBg>
+							<div className="ml-4">
 								<div className="text-xl font-bold text-[#002828]">{story.name}</div>
 								<div className="text-gray-500">{story.role}</div>
 							</div>
@@ -67,7 +70,7 @@ const ImpactStories = () => {
 					<div className="md:col-span-2 flex flex-col justify-center space-y-10">
 						{stats.map((stat, index) => (
 							<div key={index}>
-								<div className="text-5xl font-bold text-[#002828]">
+								<div className="text-4xl font-bold text-[#002828]">
 									{stat.percentage}
 								</div>
 								<div className="text-lg text-gray-500 mt-2">{stat.description}</div>
