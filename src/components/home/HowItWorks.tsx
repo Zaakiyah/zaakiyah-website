@@ -24,7 +24,17 @@ const HowItWorks = () => {
 			<div className="max-w-7xl mx-auto relative">
 				{/* Header */}
 				<div className="mb-12">
-					<div className="inline-block border border-[#00939D] text-sm text-white p-4 rounded-md mb-4 bg-[#00939D]/10">
+					<div
+						className="inline-block border border-[#00939D] text-md text-white px-4 py-3 rounded-md mb-4 bg-[#00939D]/10"
+						style={{
+							borderRight: '1px solid #003437',
+							border: '1px solid transparent',
+							borderLeft: '1px solid #00939D',
+							background:
+									'linear-gradient(270deg, #0D2B2D, #0D2B2D) padding-box, linear-gradient(to right, #00939D, #003437) border-box',
+							
+						}}
+					>
 						STEP BY STEP
 					</div>
 					<h2 className="text-4xl sm:text-5xl font-bold">How It Works</h2>
