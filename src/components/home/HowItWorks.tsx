@@ -24,7 +24,7 @@ const HowItWorks = () => {
 			<div className="max-w-7xl mx-auto relative">
 				{/* Header */}
 				<div className="mb-12">
-					<div className="inline-block border border-[#00939D] text-sm text-white px-4 py-1.5 rounded-md mb-4 bg-[#00939D]/10 shadow-md shadow-[#00939D]/30">
+					<div className="inline-block border border-[#00939D] text-sm text-white p-4 rounded-md mb-4 bg-[#00939D]/10">
 						STEP BY STEP
 					</div>
 					<h2 className="text-4xl sm:text-5xl font-bold">How It Works</h2>
@@ -36,17 +36,14 @@ const HowItWorks = () => {
 						<div
 							key={index}
 							className="relative rounded-2xl p-8 md:p-10 bg-[#0D2B2D] overflow-hidden"
+							style={{
+								borderRight: '1px solid #003437',
+								border: '1px solid transparent',
+								borderLeft: '1px solid #00939D',
+								background:
+									'linear-gradient(270deg, #0D2B2D, #0D2B2D) padding-box, linear-gradient(to right, #00939D, #003437) border-box',
+							}}
 						>
-							{/* Gradient Outline */}
-							<div
-								className="absolute inset-0 rounded-2xl pointer-events-none"
-								style={{
-									border: '1px solid #00939D',
-									background: 'linear-gradient(270deg, #00939D, #003437)',
-									opacity: 0.8,
-								}}
-							/>
-
 							{/* Step Number */}
 							<div className="text-[72px] md:text-[96px] font-extrabold bg-gradient-to-b from-white to-[#0D2B2D] text-transparent -mb-3 bg-clip-text leading-none z-10 relative">
 								{step.number}
