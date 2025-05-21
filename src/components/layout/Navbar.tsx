@@ -12,13 +12,15 @@ const Navbar = () => {
 	};
 
 	return (
-		<nav className="w-full absolute top-0 left-0 z-20 mt-10">
+		<nav className="w-full absolute top-0 left-0 z-20 md:mt-4">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
 				<div className="flex items-center justify-between">
 					{/* Logo */}
 					<div className="flex items-center">
 						<a href="/" className="flex items-center gap-2">
-							<img src={zaakiyahLogo} alt="Zaakiyah" className="h-10 w-auto" />
+							{/* <img src={zaakiyahLogo} alt="Zaakiyah" className="h-10 w-auto" /> */}
+							<img src={zaakiyahLogo} alt="Zaakiyah" className="w-15 h-15" />
+
 							<span className="text-2xl font-bold text-white">Zaakiyah</span>
 						</a>
 					</div>
@@ -58,7 +60,7 @@ const Navbar = () => {
 
 					{/* Desktop Download App Button */}
 					<div className="hidden md:block">
-						<Button variant="primary" size="large">
+						<Button variant="primary" size="medium">
 							Download App
 						</Button>
 					</div>
