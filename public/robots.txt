@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zaakiyah.com/sitemap.xml
+
+

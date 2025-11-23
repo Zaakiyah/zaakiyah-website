@@ -3,10 +3,16 @@ import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { NotFound } from './pages/NotFound';
 import Layout from './components/layout/Layout';
-import { OurProducts } from './pages/OurProducts';
+import { Blog } from './pages/Blog';
+import { BlogPost } from './pages/BlogPost';
+import { HelpCenter } from './pages/HelpCenter';
+import { PrivacyPolicy } from './pages/PrivacyPolicy';
+import { TermsOfService } from './pages/TermsOfService';
+import { CookiePolicy } from './pages/CookiePolicy';
 
 const rootRoute = createRootRoute({
 	component: Layout,
+	notFoundComponent: NotFound,
 });
 
 const indexRoute = createRoute({
@@ -21,20 +27,52 @@ const aboutRoute = createRoute({
 	component: About,
 });
 
-const ourProductsRoute = createRoute({
+const blogRoute = createRoute({
 	getParentRoute: () => rootRoute,
-	path: '/products',
-	component: OurProducts,
+	path: '/blog',
+	component: Blog,
 });
 
-// Catch-all route for 404 pages
-const notFoundRoute = createRoute({
+const blogPostRoute = createRoute({
 	getParentRoute: () => rootRoute,
-	path: '*',
-	component: NotFound,
+	path: '/blog/$id',
+	component: BlogPost,
 });
 
-const routeTree = rootRoute.addChildren([indexRoute, aboutRoute, ourProductsRoute, notFoundRoute]);
+const helpCenterRoute = createRoute({
+	getParentRoute: () => rootRoute,
+	path: '/help',
+	component: HelpCenter,
+});
+
+const privacyPolicyRoute = createRoute({
+	getParentRoute: () => rootRoute,
+	path: '/privacy',
+	component: PrivacyPolicy,
+});
+
+const termsOfServiceRoute = createRoute({
+	getParentRoute: () => rootRoute,
+	path: '/terms',
+	component: TermsOfService,
+});
+
+const cookiePolicyRoute = createRoute({
+	getParentRoute: () => rootRoute,
+	path: '/cookies',
+	component: CookiePolicy,
+});
+
+const routeTree = rootRoute.addChildren([
+	indexRoute,
+	aboutRoute,
+	blogRoute,
+	blogPostRoute,
+	helpCenterRoute,
+	privacyPolicyRoute,
+	termsOfServiceRoute,
+	cookiePolicyRoute,
+]);
 
 export const router = createRouter({ routeTree });
 
