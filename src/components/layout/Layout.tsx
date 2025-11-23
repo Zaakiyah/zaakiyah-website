@@ -1,19 +1,27 @@
-import React from 'react';
+import { Outlet, useRouterState } from '@tanstack/react-router';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { StructuredData } from '../common/StructuredData';
 
-interface LayoutProps {
-	children: React.ReactNode;
-}
+// Known valid routes
+const validRoutes = ['/', '/about', '/blog', '/help', '/privacy', '/terms', '/cookies'];
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+export default function Layout() {
+	const router = useRouterState();
+	const currentPath = router.location.pathname;
+
+	// Check if current path is a valid route (excluding dynamic blog post routes)
+	const isValidRoute = validRoutes.includes(currentPath) || /^\/blog\/\d+$/.test(currentPath);
+
+	// Hide nav/footer for 404 pages
+	const showNavAndFooter = isValidRoute;
+
 	return (
-		<div className="flex flex-col min-h-screen">
-			<Navbar />
-			<main className="flex-grow">{children}</main>
-			<Footer />
+		<div className="min-h-screen">
+			<StructuredData />
+			{showNavAndFooter && <Navbar />}
+			<Outlet />
+			{showNavAndFooter && <Footer />}
 		</div>
 	);
-};
-
-export default Layout;
+}
