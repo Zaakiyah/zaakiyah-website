@@ -14,7 +14,6 @@ import {
 	Mail01Icon,
 } from '@hugeicons/core-free-icons';
 import { useState } from 'react';
-import Button from '../components/common/Button';
 import IconWithBg from '../components/common/IconWithBg';
 import FAQAccordion from '../components/common/FAQAccordion';
 import { faqItems } from '../data/faqData';
