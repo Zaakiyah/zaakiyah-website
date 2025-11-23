@@ -4,14 +4,7 @@ import { SEO } from '../components/common/SEO';
 import { HugeiconsIcon } from '@hugeicons/react';
 import FAQ from '../components/common/FAQ';
 import { faqItems } from '../data/faqData';
-import {
-	coreValues,
-	milestones,
-	missionData,
-	visionData,
-	aboutStory,
-} from '../data/aboutData';
-import FeatureCard from '../components/common/FeatureCard';
+import { coreValues, milestones, missionData, visionData, aboutStory } from '../data/aboutData';
 
 export function About() {
 	return (
@@ -101,7 +94,7 @@ export function About() {
 									{value.title}
 								</h3>
 								<p className="text-sm text-[#002828]/70 leading-relaxed">
-									{value.desc}
+									{value.description}
 								</p>
 							</div>
 						))}
@@ -120,7 +113,7 @@ export function About() {
 							</div>
 							<h2 className="text-3xl md:text-4xl font-bold text-[#002828] mb-6 leading-tight">
 								{aboutStory.title}
-					</h2>
+							</h2>
 							<div className="space-y-4 text-base md:text-lg text-[#002828]/80 leading-relaxed">
 								{aboutStory.paragraphs.map((paragraph, index) => (
 									<p key={index}>{paragraph}</p>
@@ -166,46 +159,46 @@ export function About() {
 						<div className="text-center mb-10">
 							<h2 className="text-3xl md:text-4xl font-bold text-[#002828] mb-4">
 								Our Vision for Impact
-					</h2>
+							</h2>
 							<div className="w-24 h-1 bg-[#00939D] mx-auto rounded-full mb-4"></div>
 							<p className="text-base md:text-lg text-[#002828]/70 max-w-3xl mx-auto">
 								Our goal is to help thousands of Muslims fulfill their Zakaat
 								obligations and support those in need through our innovative
 								platform.
-					</p>
+							</p>
 						</div>
 						<div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
 							<div className="text-center group">
 								<div className="text-3xl md:text-5xl font-extrabold text-[#00939D] mb-3 group-hover:scale-110 transition-transform duration-300">
 									Secure
-							</div>
+								</div>
 								<div className="text-xs md:text-base font-medium text-[#002828]/70">
 									Bank-Level Security
+								</div>
 							</div>
-						</div>
 							<div className="text-center group">
 								<div className="text-3xl md:text-5xl font-extrabold text-[#00939D] mb-3 group-hover:scale-110 transition-transform duration-300">
 									100%
-							</div>
+								</div>
 								<div className="text-xs md:text-base font-medium text-[#002828]/70">
 									Shariah Compliant
+								</div>
 							</div>
-						</div>
 							<div className="text-center group">
 								<div className="text-3xl md:text-5xl font-extrabold text-[#00939D] mb-3 group-hover:scale-110 transition-transform duration-300">
 									Real-Time
-							</div>
+								</div>
 								<div className="text-xs md:text-base font-medium text-[#002828]/70">
 									Transparency
+								</div>
 							</div>
-						</div>
 							<div className="text-center group">
 								<div className="text-3xl md:text-5xl font-extrabold text-[#00939D] mb-3 group-hover:scale-110 transition-transform duration-300">
 									Easy
 								</div>
 								<div className="text-xs md:text-base font-medium text-[#002828]/70">
 									User-Friendly
-							</div>
+								</div>
 							</div>
 						</div>
 					</div>
