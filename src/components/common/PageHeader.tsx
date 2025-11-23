@@ -18,11 +18,11 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
 			<div className="absolute inset-0 bg-[url('../src/assets/hero-bg.svg')] bg-cover bg-center opacity-80"></div>
 			<div className="max-w-3xl mx-auto relative z-10 text-center mt-20">
 				{children && <div className="mb-4">{children}</div>}
-				<h1 className="text-4xl sm:text-[64px] font-extrabold mb-4 tracking-tighter">
+				<h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 tracking-tight">
 					{title}
 				</h1>
 				{subtitle && (
-					<p className="text-xl sm:text-[28px] text-white/80 font-medium mb-2">
+					<p className="text-lg sm:text-xl md:text-2xl text-white/80 font-medium mb-2">
 						{subtitle}
 					</p>
 				)}
