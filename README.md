@@ -156,7 +156,7 @@ pnpm preview
 - Active link indicators
 - Mobile-responsive hamburger menu
 - Smooth scroll to sections
-- Download App button linking to home section
+- Get Started button linking to home section
 
 ### Homepage Sections
 - **Hero**: Transformative messaging with action buttons and key features
@@ -165,7 +165,7 @@ pnpm preview
 - **Impact Stories**: Testimonials and statistics
 - **How It Works**: Clear process explanation
 - **FAQ**: Frequently asked questions
-- **App Download**: Mobile app showcase with screenshots
+- **Get Started**: Web app showcase with screenshots and call-to-action
 
 ### Reusable Components
 - `PageHeader`: Consistent page headers with background
