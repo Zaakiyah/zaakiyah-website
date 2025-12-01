@@ -74,14 +74,14 @@ const Navbar = () => {
 
 	const isActive = (path: string) => location.pathname === path;
 
-	const scrollToAppDownload = (e: React.MouseEvent) => {
+	const scrollToGetStarted = (e: React.MouseEvent) => {
 		e.preventDefault();
 		closeMenu();
 		
 		if (location.pathname === '/') {
 			// Already on home page, scroll to section
 			setTimeout(() => {
-				const element = document.getElementById('app-download');
+				const element = document.getElementById('get-started');
 				if (element) {
 					element.scrollIntoView({ behavior: 'smooth', block: 'start' });
 				}
@@ -90,7 +90,7 @@ const Navbar = () => {
 			// Navigate to home page first, then scroll
 			navigate({ to: '/' }).then(() => {
 				setTimeout(() => {
-					const element = document.getElementById('app-download');
+					const element = document.getElementById('get-started');
 					if (element) {
 						element.scrollIntoView({ behavior: 'smooth', block: 'start' });
 					}
@@ -176,20 +176,20 @@ const Navbar = () => {
 						))}
 					</div>
 
-					{/* Desktop Download App Button */}
+					{/* Desktop Get Started Button */}
 					<div className="hidden md:block">
 						{isScrolled ? (
 							<Button
 								variant="outline"
 								size="medium"
 								className="border-2 border-[#00939D] text-[#00939D] hover:bg-[#00939D] hover:text-white transition-all duration-300"
-								onClick={scrollToAppDownload}
+								onClick={scrollToGetStarted}
 							>
-								Download App
+								Get Started
 							</Button>
 						) : (
-							<Button variant="primary" size="medium" onClick={scrollToAppDownload}>
-								Download App
+							<Button variant="primary" size="medium" onClick={scrollToGetStarted}>
+								Get Started
 							</Button>
 						)}
 					</div>
@@ -272,15 +272,15 @@ const Navbar = () => {
 							))}
 						</div>
 
-						{/* Mobile Download App Button */}
+						{/* Mobile Get Started Button */}
 						<div className="p-6 border-t border-white/10">
 							<Button
 								variant="primary"
 								size="large"
 								className="w-full bg-white text-[#002828] hover:bg-[#00939D] hover:text-white transition-all duration-300"
-								onClick={scrollToAppDownload}
+								onClick={scrollToGetStarted}
 							>
-								Download App
+								Get Started
 							</Button>
 						</div>
 					</div>
