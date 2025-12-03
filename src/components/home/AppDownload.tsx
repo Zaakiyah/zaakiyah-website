@@ -93,7 +93,7 @@ const AppDownload = () => {
 										target.style.height = 'auto';
 										target.style.width = 'auto';
 										target.style.aspectRatio = '9/19.5';
-										}}
+									}}
 								/>
 							</div>
 						</div>
