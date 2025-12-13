@@ -17,7 +17,13 @@ const Footer = () => {
 					{/* Logo and Description Column */}
 					<div className="lg:col-span-1">
 						<Link to="/" className="flex items-center gap-2 mb-6 group">
-							<img src={zaakiyahLogo} alt="Zaakiyah" className="h-10 w-auto" />
+							<img
+								src={zaakiyahLogo}
+								alt="Zaakiyah"
+								loading="eager"
+								fetchPriority="high"
+								className="h-10 w-auto"
+							/>
 							<span className="text-2xl font-bold text-white group-hover:text-[#00939D] transition-colors duration-300">
 								Zaakiyah
 							</span>
@@ -29,7 +35,7 @@ const Footer = () => {
 						{/* Social Media Icons */}
 						<div className="flex items-center gap-4">
 							<a
-								href="https://facebook.com"
+								href="https://web.facebook.com/soliu.usman/"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#00939D] flex items-center justify-center transition-all duration-300 hover:scale-110 group"
@@ -44,11 +50,11 @@ const Footer = () => {
 								/>
 							</a>
 							<a
-								href="https://twitter.com"
+								href="https://x.com/devfresher"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#00939D] flex items-center justify-center transition-all duration-300 hover:scale-110 group"
-								aria-label="Twitter"
+								aria-label="X (Twitter)"
 							>
 								<HugeiconsIcon
 									icon={NewTwitterRectangleIcon}
@@ -59,7 +65,7 @@ const Footer = () => {
 								/>
 							</a>
 							<a
-								href="https://linkedin.com"
+								href="https://www.linkedin.com/in/devfresher"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#00939D] flex items-center justify-center transition-all duration-300 hover:scale-110 group"

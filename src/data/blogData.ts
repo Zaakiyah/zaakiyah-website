@@ -16,8 +16,8 @@ export const blogPosts: BlogPost[] = [
 		title: 'Understanding Zakaat: A Complete Guide for Muslims',
 		excerpt:
 			'Learn everything you need to know about Zakaat, one of the five pillars of Islam. This comprehensive guide covers calculation methods, eligibility, and distribution.',
-		author: 'Ahmad Ibrahim',
-		date: '2024-01-15',
+		author: 'Zaakiyah',
+		date: '2025-12-13',
 		category: 'Education',
 		readTime: '8 min read',
 		content: `# Understanding Zakaat: A Complete Guide for Muslims
@@ -69,8 +69,8 @@ Zakaat must be distributed to eligible recipients, including:
 		title: 'How to Calculate Your Zakaat Accurately',
 		excerpt:
 			'Step-by-step instructions on calculating your Zakaat using our innovative calculator. Ensure you fulfill your religious obligations correctly.',
-		author: 'Fatima Abdullahi',
-		date: '2024-01-10',
+		author: 'Zaakiyah',
+		date: '2025-12-13',
 		category: 'Tutorial',
 		readTime: '6 min read',
 		content: `# How to Calculate Your Zakaat Accurately
@@ -114,8 +114,8 @@ Our Zakaat calculator simplifies this process by:
 		title: 'The Impact of Your Sadaqah: Real Stories from Our Community',
 		excerpt:
 			'Discover how your charitable donations are making a real difference in the lives of those in need across Nigeria.',
-		author: 'Musa Kola',
-		date: '2024-01-05',
+		author: 'Zaakiyah',
+		date: '2025-12-13',
 		category: 'Impact',
 		readTime: '5 min read',
 		content: `# The Impact of Your Sadaqah: Real Stories from Our Community
@@ -143,8 +143,8 @@ Every donation, no matter the size, contributes to making a real difference in s
 		title: 'Digital Zakaat: Embracing Technology for Islamic Giving',
 		excerpt:
 			'Explore how modern technology is making it easier for Muslims to fulfill their Zakaat obligations while maintaining Shariah compliance.',
-		author: 'Amina Hassan',
-		date: '2023-12-28',
+		author: 'Zaakiyah',
+		date: '2025-12-13',
 		category: 'Technology',
 		readTime: '7 min read',
 		content: `# Digital Zakaat: Embracing Technology for Islamic Giving
@@ -180,8 +180,8 @@ As technology continues to evolve, we can expect even more innovative solutions 
 		title: 'Zakaat vs Sadaqah: Understanding the Difference',
 		excerpt:
 			'Clarify the differences between Zakaat (obligatory charity) and Sadaqah (voluntary charity) to ensure proper understanding and practice.',
-		author: 'Ibrahim Musa',
-		date: '2023-12-20',
+		author: 'Zaakiyah',
+		date: '2025-12-13',
 		category: 'Education',
 		readTime: '6 min read',
 		content: `# Zakaat vs Sadaqah: Understanding the Difference
@@ -222,8 +222,8 @@ Both Zakaat and Sadaqah play crucial roles in Islamic giving, helping those in n
 		title: 'Ensuring Transparency in Charitable Giving',
 		excerpt:
 			'Learn how Zaakiyah ensures complete transparency in the distribution of your Zakaat and Sadaqah donations.',
-		author: 'Hassan Ali',
-		date: '2023-12-15',
+		author: 'Zaakiyah',
+		date: '2025-12-13',
 		category: 'Transparency',
 		readTime: '5 min read',
 		content: `# Ensuring Transparency in Charitable Giving

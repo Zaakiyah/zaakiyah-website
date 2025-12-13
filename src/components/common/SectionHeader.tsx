@@ -20,22 +20,21 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
 	const gradientColor = dark ? 'from-[#00939D] to-transparent' : 'from-[#00939D] to-[#002828]';
 
 	return (
-		<div className={`text-center mb-12 ${className}`}>
+		<div className={`text-center mb-8 ${className}`}>
 			{badge && (
-				<div className="inline-block border-2 border-[#00939D]/30 text-sm font-semibold text-white px-6 py-2 rounded-full mb-6 bg-[#00939D]/10 backdrop-blur-sm tracking-wider">
+				<div className="inline-block border border-[#00939D]/30 text-xs font-semibold text-white px-4 py-1.5 rounded-full mb-4 bg-[#00939D]/10 backdrop-blur-sm tracking-wide">
 					{badge}
 				</div>
 			)}
-			<h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${textColor}`}>
-				{title}
-			</h2>
-			<div className={`w-32 h-1.5 bg-gradient-to-r ${gradientColor} mx-auto rounded-full`}></div>
+			<h2 className={`text-2xl md:text-3xl font-bold mb-3 ${textColor}`}>{title}</h2>
+			<div
+				className={`w-24 h-1 bg-gradient-to-r ${gradientColor} mx-auto rounded-full`}
+			></div>
 			{subtitle && (
-				<p className={`text-lg ${subtitleColor} mt-4 max-w-2xl mx-auto`}>{subtitle}</p>
+				<p className={`text-sm ${subtitleColor} mt-3 max-w-2xl mx-auto`}>{subtitle}</p>
 			)}
 		</div>
 	);
 };
 
 export default SectionHeader;
-

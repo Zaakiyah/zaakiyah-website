@@ -29,36 +29,32 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({
 	const isCompact = variant === 'compact';
 
 	return (
-		<div className={isCompact ? `space-y-3 ${className}` : `space-y-4 ${className}`}>
+		<div className={isCompact ? `space-y-2 ${className}` : `space-y-3 ${className}`}>
 			{displayItems.map((item, index) => {
 				const isOpen = openIndex === index;
 				const baseClasses = isCompact
 					? 'rounded-lg border transition-all duration-200'
-					: 'rounded-2xl border-2 transition-all duration-300';
+					: 'rounded-xl border transition-all duration-300';
 				const stateClasses = isOpen
 					? isCompact
 						? 'bg-[#E0F2F2] border-[#00939D]'
-						: 'bg-gradient-to-br from-[#E0F2F2] to-white border-[#00939D]/40 shadow-lg'
+						: 'bg-gradient-to-br from-[#E0F2F2] to-white border-[#00939D]/40 shadow-md'
 					: isCompact
-						? 'bg-white border-[#E0F2F2] hover:border-[#00939D]/30'
-						: 'bg-white border-[#E0F2F2] hover:border-[#00939D]/30 hover:shadow-md';
+					? 'bg-white border-[#E0F2F2] hover:border-[#00939D]/30'
+					: 'bg-white border-[#E0F2F2] hover:border-[#00939D]/30 hover:shadow-sm';
 
 				return (
 					<div key={index} className={`${baseClasses} ${stateClasses}`}>
 						<button
 							className={`flex justify-between items-center w-full ${
-								isCompact ? 'py-5 px-6' : 'py-6 px-8'
+								isCompact ? 'py-3 px-4' : 'py-4 px-5'
 							} text-left group`}
 							onClick={() => toggleAccordion(index)}
 						>
 							<span
 								className={`${
-									isCompact
-										? 'text-lg font-medium'
-										: 'text-lg md:text-xl font-semibold'
-								} text-[#002828] pr-4 ${
-									isOpen ? 'text-[#00939D]' : ''
-								} ${
+									isCompact ? 'text-sm font-semibold' : 'text-base font-semibold'
+								} text-[#002828] pr-4 ${isOpen ? 'text-[#00939D]' : ''} ${
 									!isCompact
 										? 'group-hover:text-[#00939D] transition-colors duration-300'
 										: ''
@@ -66,23 +62,25 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({
 							>
 								{item.question}
 							</span>
-							<span className="ml-6 flex-shrink-0">
+							<span className="ml-4 flex-shrink-0">
 								{isOpen ? (
 									<HugeiconsIcon
 										icon={Remove01Icon}
-										size={24}
+										size={20}
 										color={isCompact ? '#002828' : '#00939D'}
-										strokeWidth={isCompact ? 1.5 : 2}
+										strokeWidth={1.5}
 										className={
-											!isCompact ? 'transition-transform duration-300 rotate-180' : ''
+											!isCompact
+												? 'transition-transform duration-300 rotate-180'
+												: ''
 										}
 									/>
 								) : (
 									<HugeiconsIcon
 										icon={PlusSignIcon}
-										size={24}
+										size={20}
 										color="#002828"
-										strokeWidth={isCompact ? 1.5 : 2}
+										strokeWidth={1.5}
 										className={
 											!isCompact
 												? 'group-hover:text-[#00939D] transition-all duration-300'
@@ -95,12 +93,16 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({
 
 						{isOpen && (
 							<div
-								className={`${isCompact ? 'pb-5 px-6' : 'pb-6 px-8'} ${
-									!isCompact ? 'animate-in fade-in slide-in-from-top duration-300' : ''
+								className={`${isCompact ? 'pb-3 px-4' : 'pb-4 px-5'} ${
+									!isCompact
+										? 'animate-in fade-in slide-in-from-top duration-300'
+										: ''
 								}`}
 							>
 								<p
-									className={`${isCompact ? 'text-base' : 'text-lg'} text-[#002828]/70 leading-relaxed`}
+									className={`${
+										isCompact ? 'text-sm' : 'text-sm'
+									} text-[#002828]/70 leading-relaxed`}
 								>
 									{item.answer}
 								</p>
@@ -114,4 +116,3 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({
 };
 
 export default FAQAccordion;
-
