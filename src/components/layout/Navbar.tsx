@@ -119,6 +119,8 @@ const Navbar = () => {
 							alt="Zaakiyah"
 							loading="eager"
 							fetchPriority="high"
+							width="48"
+							height="48"
 							className="h-10 w-10 md:h-12 md:w-12 transition-transform duration-300 group-hover:rotate-3"
 						/>
 						<span
@@ -237,6 +239,8 @@ const Navbar = () => {
 									alt="Zaakiyah"
 									loading="eager"
 									fetchPriority="high"
+									width="40"
+									height="40"
 									className="h-10 w-auto transition-transform duration-300 group-hover:scale-110"
 								/>
 								<span className="text-2xl font-bold text-white group-hover:text-[#00939D] transition-colors duration-300">

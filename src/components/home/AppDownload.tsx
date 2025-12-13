@@ -65,6 +65,8 @@ const AppDownload = () => {
 									alt="Zaakiyah web app dashboard showing Zakaat calculation"
 									loading="lazy"
 									decoding="async"
+									width="300"
+									height="650"
 									className="w-full max-w-[140px] xs:max-w-[160px] sm:max-w-[180px] md:max-w-[220px] lg:max-w-[260px] xl:max-w-[300px] mx-auto lg:mx-0 rounded-[2.25rem] object-cover block"
 									onError={(e) => {
 										const target = e.target as HTMLImageElement;
@@ -88,6 +90,8 @@ const AppDownload = () => {
 									alt="Zaakiyah web app showing completed Zakaat calculation"
 									loading="lazy"
 									decoding="async"
+									width="300"
+									height="650"
 									className="w-full max-w-[140px] xs:max-w-[160px] sm:max-w-[180px] md:max-w-[220px] lg:max-w-[260px] xl:max-w-[300px] mx-auto lg:mx-0 rounded-[2.25rem] object-cover block"
 									onError={(e) => {
 										const target = e.target as HTMLImageElement;
