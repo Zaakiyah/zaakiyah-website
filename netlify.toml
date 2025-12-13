@@ -2,3 +2,23 @@
   publish = "dist"
   command = "pnpm run build"
 
+# Domain redirects for SEO (www to non-www and HTTP to HTTPS)
+# Note: SPA routing is handled by public/_redirects file
+[[redirects]]
+  from = "https://www.zaakiyah.com/*"
+  to = "https://zaakiyah.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://zaakiyah.com/*"
+  to = "https://zaakiyah.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.zaakiyah.com/*"
+  to = "https://zaakiyah.com/:splat"
+  status = 301
+  force = true
+

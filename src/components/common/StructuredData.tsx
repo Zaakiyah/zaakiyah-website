@@ -11,9 +11,9 @@ export const StructuredData: React.FC = () => {
 			url: 'https://zaakiyah.com',
 			logo: 'https://zaakiyah.com/zaakiyah-logo.svg',
 			sameAs: [
-				'https://facebook.com/zaakiyah',
-				'https://twitter.com/zaakiyah',
-				'https://linkedin.com/company/zaakiyah',
+				'https://web.facebook.com/soliu.usman/',
+				'https://x.com/devfresher',
+				'https://www.linkedin.com/in/devfresher',
 			],
 			contactPoint: {
 				'@type': 'ContactPoint',

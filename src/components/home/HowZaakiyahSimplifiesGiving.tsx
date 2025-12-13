@@ -11,14 +11,14 @@ const colSpanClasses = [
 
 const HowZaakiyahSimplifiesGiving = () => {
 	return (
-		<section className="bg-[#00939D]/[0.06] py-24 px-6">
+		<section className="bg-[#00939D]/[0.06] py-16 px-6">
 			<div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-				<SectionHeader title="How Zaakiyah Simplifies Your Giving" className="mb-12" />
-				<p className="text-lg md:text-xl text-[#002828]/80 mb-16 max-w-3xl mx-auto leading-relaxed">
+				<SectionHeader title="How Zaakiyah Simplifies Your Giving" className="mb-8" />
+				<p className="text-sm md:text-base text-[#002828]/80 mb-10 max-w-3xl mx-auto leading-relaxed">
 					Give with sincerity, ensure security, and witness the impact of your
 					Zakaat and Sadaqah in real-time.
 				</p>
-				<div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-10">
+				<div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-8">
 					{simplifiesGivingSteps.map((step, index) => (
 						<StepCard
 							key={index}

@@ -22,16 +22,16 @@ const Button: React.FC<ButtonProps> = ({
 	};
 
 	const sizeStyles = {
-		small: 'px-4 py-2 text-sm',
-		medium: 'px-6 py-3 text-base',
-		large: 'px-8 py-3.5 text-lg',
+		small: 'px-3 py-1.5 text-sm',
+		medium: 'px-4 py-2 text-sm',
+		large: 'px-5 py-2.5 text-base',
 	};
 
 	const mergedClasses = twMerge(
 		baseStyles,
 		variantStyles[variant],
 		sizeStyles[size],
-		'rounded-lg',
+		'rounded-lg font-semibold',
 		className
 	);
 
