@@ -5,5 +5,38 @@
   html {
     font-family: "Plus Jakarta Sans", system-ui, sans-serif;
     scroll-behavior: smooth;
+    /* Compact typography base */
+    font-size: 15px;
+    /* Slightly smaller base */
+  }
+
+  /* Consistent typography scale - Modern & Elegant */
+  h1 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold leading-tight;
+  }
+
+  h2 {
+    @apply text-2xl md:text-3xl font-bold leading-tight;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl font-semibold leading-snug;
+  }
+
+  h4 {
+    @apply text-lg md:text-xl font-semibold leading-snug;
+  }
+
+  p {
+    @apply text-sm md:text-base leading-relaxed;
+  }
+
+  /* Compact spacing utilities */
+  .space-compact>*+* {
+    @apply mt-3;
+  }
+
+  .space-compact-lg>*+* {
+    @apply mt-4;
   }
 }

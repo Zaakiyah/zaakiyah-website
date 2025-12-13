@@ -28,7 +28,13 @@ export function NotFound() {
 			<nav className="w-full absolute top-0 left-0 z-20 pt-6">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<Link to="/" className="flex items-center gap-2 group">
-						<img src={zaakiyahLogo} alt="Zaakiyah" className="h-10 w-auto" />
+						<img
+						src={zaakiyahLogo}
+						alt="Zaakiyah"
+						loading="eager"
+						fetchPriority="high"
+						className="h-10 w-auto"
+					/>
 						<span className="text-2xl font-bold text-[#002828] group-hover:text-[#00939D] transition-colors duration-300">
 							Zaakiyah
 						</span>

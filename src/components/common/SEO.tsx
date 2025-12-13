@@ -14,7 +14,7 @@ const defaultDescription =
 	'Zaakiyah is an innovative platform designed to revolutionize how Muslims fulfill their Zakaat obligations. Calculate, donate, and track your Zakaat with confidence and Shariah compliance.';
 const defaultKeywords =
 	'Zakaat, Sadaqah, Islamic giving, Zakaat calculator, Muslim charity, Islamic finance, Shariah compliant, Nigeria, Islamic donations';
-const siteUrl = 'https://zaakiyah.com'; // Update with actual domain when available
+const siteUrl = 'https://zaakiyah.com'; // Verified domain with SSL
 
 export const SEO: React.FC<SEOProps> = ({
 	title,
@@ -75,4 +75,3 @@ export const SEO: React.FC<SEOProps> = ({
 
 	return null;
 };
-
