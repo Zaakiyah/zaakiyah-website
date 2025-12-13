@@ -112,11 +112,11 @@ const CookieConsent: React.FC = () => {
 			aria-describedby="cookie-consent-description"
 		>
 			<div className="max-w-7xl mx-auto">
-				<div className="flex flex-col md:flex-row items-start md:items-center gap-3 relative">
+				<div className="flex flex-col md:flex-row items-start md:items-center gap-3 relative pr-8 md:pr-10">
 					{/* Close button - desktop only */}
 					<button
 						onClick={handleClose}
-						className="hidden md:block absolute top-0 right-0 p-1.5 rounded-lg hover:bg-slate-100 transition-colors text-slate-600 hover:text-slate-900"
+						className="hidden md:block absolute top-0 right-0 p-1.5 rounded-lg hover:bg-slate-100 transition-colors text-slate-600 hover:text-slate-900 z-10"
 						aria-label="Close cookie banner"
 					>
 						<svg
@@ -135,7 +135,7 @@ const CookieConsent: React.FC = () => {
 					</button>
 
 					{/* Content */}
-					<div className="flex-1 pr-6 md:pr-8">
+					<div className="flex-1">
 						<h3
 							id="cookie-consent-title"
 							className="text-sm font-semibold text-[#002828] mb-1.5"
@@ -160,7 +160,7 @@ const CookieConsent: React.FC = () => {
 					</div>
 
 					{/* Actions */}
-					<div className="flex items-center gap-2 w-full md:w-auto shrink-0">
+					<div className="flex items-center gap-2 w-full md:w-auto shrink-0 md:pr-8">
 						<Button
 							variant="outline"
 							size="small"
@@ -170,10 +170,10 @@ const CookieConsent: React.FC = () => {
 							Reject
 						</Button>
 						<Button
-							variant="primary"
+							variant="outline"
 							size="small"
 							onClick={handleAccept}
-							className="flex-1 md:flex-none bg-primary-500 hover:bg-primary-600 text-white text-xs"
+							className="flex-1 md:flex-none bg-[#00939D]! border-[#00939D]! hover:bg-[#007a82]! hover:border-[#007a82]! text-white! text-xs"
 						>
 							Accept
 						</Button>
