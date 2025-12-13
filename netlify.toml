@@ -22,3 +22,40 @@
   status = 301
   force = true
 
+# Security Headers
+# Apply security headers to all routes
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Prevent clickjacking attacks
+    X-Frame-Options = "DENY"
+    
+    # Prevent MIME type sniffing
+    X-Content-Type-Options = "nosniff"
+    
+    # Control referrer information
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+    # Control browser features
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    
+    # Force HTTPS (HSTS) - 1 year
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    
+    # Content Security Policy
+    # Allows: self, Google Analytics, Google Fonts, and app subdomain
+    Content-Security-Policy = """
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com;
+      img-src 'self' data: https: blob:;
+      connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com;
+      frame-src 'none';
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self' https://app.zaakiyah.com;
+      frame-ancestors 'none';
+      upgrade-insecure-requests;
+    """
+
