@@ -1,0 +1,23 @@
+# Exported from Render on 2025-12-17T05:54:40Z
+version: '1'
+projects:
+    - name: Zaakiyah
+      environments:
+          - name: Production
+            services:
+                - type: web
+                  name: zaakiyah-website
+                  runtime: static
+                  repo: https://github.com/Zaakiyah/zaakiyah-website
+                  envVars:
+                      - key: VITE_GA_MEASUREMENT_ID
+                        sync: false
+                      - key: VITE_WEB_APP_URL
+                        sync: false
+                  buildCommand: pnpm install --frozen-lockfile; pnpm run build
+                  staticPublishPath: dist
+                  autoDeployTrigger: commit
+                  routes:
+                      - type: rewrite
+                        source: /*
+                        destination: /index.html
