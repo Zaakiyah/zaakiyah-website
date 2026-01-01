@@ -18,7 +18,8 @@ const AppDownload = () => {
 							Ready to fulfill a major pillar of the Deen?
 						</h2>
 						<p className="text-sm md:text-base text-[#002828]/70 mb-6 leading-relaxed">
-							Access Zaakiyah on any device - no download required. Our mobile-first web app works seamlessly on your phone, tablet, or computer.
+							Access Zaakiyah on any device - no download required. Our mobile-first
+							web app works seamlessly on your phone, tablet, or computer.
 						</p>
 
 						{/* Get Started Button */}
@@ -29,11 +30,7 @@ const AppDownload = () => {
 								rel="noopener noreferrer"
 								className="inline-block"
 							>
-								<Button
-									variant="primary"
-									size="large"
-									className="w-full sm:w-auto"
-								>
+								<Button variant="primary" size="large" className="w-full sm:w-auto">
 									Get Started
 								</Button>
 							</a>
@@ -61,7 +58,7 @@ const AppDownload = () => {
 							<div className="absolute inset-0 bg-gradient-to-br from-[#00939D]/20 to-[#002828]/20 rounded-[3rem] blur-xl group-hover:blur-2xl transition-all duration-500 -z-10 scale-110"></div>
 							<div className="rounded-[2.5rem] p-1 bg-gradient-to-br from-[#002828]/30 to-[#002828]/10 shadow-2xl transform -rotate-6 sm:-rotate-8 lg:-rotate-6 group-hover:-rotate-2 group-hover:scale-105 transition-all duration-500">
 								<img
-									src="/app-dashboard-screenshot.png"
+									src="/app-dashboard-screenshot.jpeg"
 									alt="Zaakiyah web app dashboard showing Zakaat calculation"
 									loading="lazy"
 									decoding="async"
