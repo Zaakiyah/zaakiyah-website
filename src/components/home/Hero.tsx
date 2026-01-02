@@ -6,6 +6,8 @@ import FeatureCard from '../common/FeatureCard';
 import { heroFeatures } from '../../data/featuresData';
 
 const Hero = () => {
+	// Get web app URL from environment variable
+	const WEB_APP_URL = import.meta.env.VITE_WEB_APP_URL || 'http://localhost:3000';
 	return (
 		<section className="relative bg-[#002828] text-white pt-6 overflow-visible">
 			<div className="absolute inset-0 bg-[url('../src/assets/hero-bg.svg')] bg-cover bg-center opacity-70"></div>
@@ -31,45 +33,66 @@ const Hero = () => {
 							and earn you immense rewards in the Hereafter.
 						</p>
 						<div className="flex flex-col sm:flex-row gap-3 justify-center">
-							<Button
-								variant="primary"
-								size="large"
-								className="inline-flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+							<a
+								href={`${WEB_APP_URL}/calculate`}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="inline-block"
 							>
-								<HugeiconsIcon
-									icon={Calculator01Icon}
-									size={24}
-									color="#002828"
-									strokeWidth={1.5}
-								/>
-								Calculate Zakaat
-							</Button>
-							<Button
-								variant="secondary"
-								size="large"
-								className="inline-flex items-center justify-center gap-2 border-2 border-white/30 hover:border-white/50 backdrop-blur-sm transition-all duration-300 hover:scale-105"
+								<Button
+									variant="primary"
+									size="large"
+									className="inline-flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 w-full sm:w-auto"
+								>
+									<HugeiconsIcon
+										icon={Calculator01Icon}
+										size={24}
+										color="#002828"
+										strokeWidth={1.5}
+									/>
+									Calculate Zakaat
+								</Button>
+							</a>
+							<a
+								href={`${WEB_APP_URL}/zakaat/donation/recipients`}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="inline-block"
 							>
-								<HugeiconsIcon
-									icon={SaveMoneyDollarIcon}
-									size={24}
-									color="currentColor"
-									strokeWidth={1.5}
-								/>
-								Give Donations
-							</Button>
-							<Button
-								variant="secondary"
-								size="large"
-								className="inline-flex items-center justify-center gap-2 border-2 border-white/30 hover:border-white/50 backdrop-blur-sm transition-all duration-300 hover:scale-105"
+								<Button
+									variant="secondary"
+									size="large"
+									className="inline-flex items-center justify-center gap-2 border-2 border-white/30 hover:border-white/50 backdrop-blur-sm transition-all duration-300 hover:scale-105 w-full sm:w-auto"
+								>
+									<HugeiconsIcon
+										icon={SaveMoneyDollarIcon}
+										size={24}
+										color="currentColor"
+										strokeWidth={1.5}
+									/>
+									Give Donations
+								</Button>
+							</a>
+							<a
+								href={`${WEB_APP_URL}/zakaat/apply`}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="inline-block"
 							>
-								<HugeiconsIcon
-									icon={UserSearchIcon}
-									size={24}
-									color="currentColor"
-									strokeWidth={1.5}
-								/>
-								Request Assistance
-							</Button>
+								<Button
+									variant="secondary"
+									size="large"
+									className="inline-flex items-center justify-center gap-2 border-2 border-white/30 hover:border-white/50 backdrop-blur-sm transition-all duration-300 hover:scale-105 w-full sm:w-auto"
+								>
+									<HugeiconsIcon
+										icon={UserSearchIcon}
+										size={24}
+										color="currentColor"
+										strokeWidth={1.5}
+									/>
+									Request Assistance
+								</Button>
+							</a>
 						</div>
 					</div>
 

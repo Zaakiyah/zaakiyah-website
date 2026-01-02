@@ -212,8 +212,9 @@ const Navbar = () => {
 						right: 0, 
 						bottom: 0,
 						width: '100%',
-						height: '100vh',
-						overflowY: 'auto'
+						height: '100dvh', // Use dynamic viewport height for mobile browsers
+						overflowY: 'auto',
+						paddingBottom: 'env(safe-area-inset-bottom, 0px)' // Account for mobile browser UI
 					}}
 				>
 					{/* Background Pattern - Fixed */}
@@ -281,7 +282,13 @@ const Navbar = () => {
 						</div>
 
 						{/* Mobile Get Started Button */}
-						<div className="p-6 border-t border-white/10">
+						<div 
+							className="p-6 border-t border-white/10" 
+							style={{ 
+								paddingBottom: 'max(1.5rem, calc(1.5rem + env(safe-area-inset-bottom)))',
+								paddingTop: '1.5rem'
+							}}
+						>
 							<Button
 								variant="primary"
 								size="large"
