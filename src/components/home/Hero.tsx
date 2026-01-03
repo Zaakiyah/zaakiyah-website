@@ -18,12 +18,12 @@ const Hero = () => {
 				<div className="flex flex-col items-center gap-3 w-full">
 					<TopBannerStats />
 					{/* Nisaab Preview */}
-					<div className="max-w-md w-full px-4 relative z-10">
+					<div className="max-w-md w-full px-4 relative z-0">
 						<NisaabPreview />
 					</div>
 				</div>
 
-				<div className="w-full px-4 sm:px-6 md:px-8 pt-4 md:pt-6 pb-20 md:pb-28 overflow-visible relative">
+				<div className="w-full px-4 sm:px-6 md:px-8 pt-4 md:pt-6 pb-32 sm:pb-40 md:pb-48 overflow-visible relative z-20">
 					<div className="text-center max-w-5xl mx-auto">
 						<h1 className="text-3xl sm:text-4xl md:text-5xl leading-tight font-bold mb-4 tracking-tight">
 							Transform Lives {/* <br /> */}
@@ -37,7 +37,7 @@ const Hero = () => {
 							<span className="md:hidden"> </span>
 							and earn you immense rewards in the Hereafter.
 						</p>
-						<div className="flex flex-col sm:flex-row gap-3 justify-center">
+						<div className="flex flex-col sm:flex-row gap-3 justify-center relative z-30 mb-6 sm:mb-0">
 							<a
 								href={`${WEB_APP_URL}/calculate`}
 								target="_blank"
@@ -101,8 +101,8 @@ const Hero = () => {
 						</div>
 					</div>
 
-					<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-30 w-full">
-						<div className="bg-white/95 backdrop-blur-md rounded-2xl px-4 md:px-8 py-6 md:py-8 shadow-2xl border border-white/20 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-center transform hover:scale-[1.01] transition-all duration-500 relative z-30">
+					<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-5 w-full">
+						<div className="bg-white/95 backdrop-blur-md rounded-2xl px-4 md:px-8 py-6 md:py-8 shadow-2xl border border-white/20 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-center transform hover:scale-[1.01] transition-all duration-500 relative z-5">
 							{heroFeatures.map((feature, index) => (
 								<FeatureCard
 									key={index}
