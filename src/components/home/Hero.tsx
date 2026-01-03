@@ -3,6 +3,7 @@ import { Calculator01Icon, SaveMoneyDollarIcon, UserSearchIcon } from '@hugeicon
 import Button from '../common/Button';
 import TopBannerStats from '../common/TopBannerStats';
 import FeatureCard from '../common/FeatureCard';
+import NisaabPreview from './NisaabPreview';
 import { heroFeatures } from '../../data/featuresData';
 
 const Hero = () => {
@@ -14,8 +15,12 @@ const Hero = () => {
 			<div className="absolute inset-0 bg-gradient-to-b from-[#002828]/50 to-[#002828]"></div>
 
 			<div className="relative mt-30 overflow-visible">
-				<div className="flex justify-center w-full">
+				<div className="flex flex-col items-center gap-3 w-full">
 					<TopBannerStats />
+					{/* Nisaab Preview */}
+					<div className="max-w-md w-full px-4 relative z-10">
+						<NisaabPreview />
+					</div>
 				</div>
 
 				<div className="w-full px-4 sm:px-6 md:px-8 pt-4 md:pt-6 pb-20 md:pb-28 overflow-visible relative">
