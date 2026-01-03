@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { Chart01Icon, ArrowDown01Icon } from '@hugeicons/core-free-icons';
 
@@ -48,7 +49,9 @@ const NisaabPreview = () => {
 	const [selectedCurrency, setSelectedCurrency] = useState<string>('NGN');
 	const [supportedCurrencies, setSupportedCurrencies] = useState<SupportedCurrency[]>([]);
 	const [isCurrencyDropdownOpen, setIsCurrencyDropdownOpen] = useState(false);
+	const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0 });
 	const dropdownRef = useRef<HTMLDivElement>(null);
+	const buttonRef = useRef<HTMLButtonElement>(null);
 
 	// Get API URL from environment variable
 	const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3010';
@@ -136,6 +139,18 @@ const NisaabPreview = () => {
 		}
 	}, [API_URL, selectedCurrency]);
 
+	// Calculate dropdown position when opening
+	useEffect(() => {
+		if (isCurrencyDropdownOpen && buttonRef.current) {
+			const rect = buttonRef.current.getBoundingClientRect();
+			// Use getBoundingClientRect for fixed positioning (viewport coordinates)
+			setDropdownPosition({
+				top: rect.bottom + window.scrollY + 4, // 4px gap, add scroll offset for portal
+				left: rect.left + window.scrollX, // Align with button left edge, add scroll offset
+			});
+		}
+	}, [isCurrencyDropdownOpen]);
+
 	// Close dropdown when clicking outside
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent) => {
@@ -204,32 +219,51 @@ const NisaabPreview = () => {
 	}
 
 	return (
-		<div className="bg-white/95 backdrop-blur-md rounded-xl px-4 py-3 shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300 group relative z-10">
-			<div className="flex items-center justify-between">
-				<div className="flex items-center gap-3 flex-1 min-w-0">
-					<div className="w-10 h-10 bg-gradient-to-br from-[#00939D] to-[#007A82] rounded-lg flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow flex-shrink-0">
-						<HugeiconsIcon icon={Chart01Icon} size={20} color="white" strokeWidth={2} />
+		<div
+			className="bg-white/95 backdrop-blur-md rounded-xl px-4 py-3 shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300 group relative z-0"
+			style={{ overflow: 'visible' }}
+		>
+			<div className="flex items-center justify-between gap-2">
+				<div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
+					<div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-[#00939D] to-[#007A82] rounded-lg flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow flex-shrink-0">
+						<HugeiconsIcon
+							icon={Chart01Icon}
+							size={18}
+							color="white"
+							strokeWidth={2}
+							className="sm:w-5 sm:h-5"
+						/>
 					</div>
-					<div className="flex-1 min-w-0">
-						<div className="flex items-center gap-2 mb-0.5">
-							<p className="text-xs text-[#002828]/60 font-medium">Today's Nisaab</p>
+					<div className="flex-1 min-w-0" style={{ overflow: 'visible' }}>
+						<div className="flex items-center gap-1.5 sm:gap-2 mb-0.5 flex-wrap">
+							<p className="text-xs text-[#002828]/60 font-medium whitespace-nowrap">
+								Today's Nisaab
+							</p>
 							{/* Currency Selector */}
 							{supportedCurrencies.length > 0 && (
-								<div className="relative z-[100]" ref={dropdownRef}>
+								<div
+									className="relative flex-shrink-0"
+									ref={dropdownRef}
+									style={{ zIndex: 999999 }}
+								>
 									<button
+										ref={buttonRef}
 										type="button"
 										onClick={(e) => {
 											e.preventDefault();
 											e.stopPropagation();
 											setIsCurrencyDropdownOpen(!isCurrencyDropdownOpen);
 										}}
-										className="flex items-center gap-1 px-1.5 py-0.5 rounded text-xs font-semibold text-[#00939D] hover:bg-[#00939D]/10 transition-colors relative z-[100]"
+										className="flex items-center gap-0.5 sm:gap-1 px-1 sm:px-1.5 py-0.5 rounded text-xs font-semibold text-[#00939D] hover:bg-[#00939D]/10 transition-colors relative whitespace-nowrap"
+										style={{ zIndex: 999999 }}
 										title="Change currency"
 									>
-										<span>{selectedCurrency}</span>
+										<span className="text-[10px] sm:text-xs">
+											{selectedCurrency}
+										</span>
 										<HugeiconsIcon
 											icon={ArrowDown01Icon}
-											size={12}
+											size={10}
 											color="currentColor"
 											strokeWidth={2}
 											className={`transition-transform ${
@@ -237,41 +271,52 @@ const NisaabPreview = () => {
 											}`}
 										/>
 									</button>
-									{isCurrencyDropdownOpen && (
-										<div className="absolute top-full left-0 mt-1 z-[9999] bg-white dark:bg-slate-800 rounded-lg shadow-xl border-2 border-slate-200 dark:border-slate-700 max-h-64 overflow-y-auto min-w-[200px]">
-											{supportedCurrencies.map((currency) => (
-												<button
-													key={currency.code}
-													type="button"
-													onClick={(e) => {
-														e.preventDefault();
-														e.stopPropagation();
-														handleCurrencyChange(currency.code);
-													}}
-													className={`w-full text-left px-3 py-2 text-sm hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors ${
-														selectedCurrency === currency.code
-															? 'bg-[#00939D]/10 text-[#00939D] font-semibold'
-															: 'text-slate-700 dark:text-slate-300'
-													}`}
-												>
-													<div className="flex items-center justify-between">
-														<span>{currency.code}</span>
-														<span className="text-xs text-slate-500 dark:text-slate-400">
-															{currency.name}
-														</span>
-													</div>
-												</button>
-											))}
-										</div>
-									)}
+									{isCurrencyDropdownOpen &&
+										createPortal(
+											<div
+												className="fixed bg-white dark:bg-slate-800 rounded-lg shadow-xl border-2 border-slate-200 dark:border-slate-700 max-h-64 overflow-y-auto min-w-[200px]"
+												style={{
+													zIndex: 999999,
+													top: `${dropdownPosition.top}px`,
+													left: `${dropdownPosition.left}px`,
+												}}
+											>
+												{supportedCurrencies.map((currency) => (
+													<button
+														key={currency.code}
+														type="button"
+														onClick={(e) => {
+															e.preventDefault();
+															e.stopPropagation();
+															handleCurrencyChange(currency.code);
+														}}
+														className={`w-full text-left px-3 py-2 text-sm hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors ${
+															selectedCurrency === currency.code
+																? 'bg-[#00939D]/10 text-[#00939D] font-semibold'
+																: 'text-slate-700 dark:text-slate-300'
+														}`}
+													>
+														<div className="flex items-center justify-between">
+															<span>{currency.code}</span>
+															<span className="text-xs text-slate-500 dark:text-slate-400">
+																{currency.name}
+															</span>
+														</div>
+													</button>
+												))}
+											</div>,
+											document.body
+										)}
 								</div>
 							)}
 						</div>
-						<div className="flex items-baseline gap-2">
-							<p className="text-base font-bold text-[#002828] truncate">
+						<div className="flex items-baseline gap-1.5 sm:gap-2 min-w-0">
+							<p className="text-sm sm:text-base font-bold text-[#002828] truncate">
 								{formatCurrency(nisaabData.goldNisaabValue)}
 							</p>
-							<span className="text-xs text-[#002828]/50 flex-shrink-0">(Gold)</span>
+							<span className="text-[10px] sm:text-xs text-[#002828]/50 flex-shrink-0">
+								(Gold)
+							</span>
 						</div>
 					</div>
 				</div>
@@ -285,10 +330,18 @@ const NisaabPreview = () => {
 							e.stopPropagation();
 						}
 					}}
-					className="flex items-center gap-1 text-[#00939D] group-hover:gap-2 transition-all flex-shrink-0 ml-2"
+					className="flex items-center gap-0.5 sm:gap-1 text-[#00939D] group-hover:gap-1 sm:group-hover:gap-2 transition-all flex-shrink-0 ml-1 sm:ml-2"
 				>
-					<span className="text-xs font-semibold">View History</span>
-					<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<span className="text-[10px] sm:text-xs font-semibold hidden xs:inline">
+						View History
+					</span>
+					<span className="text-[10px] sm:text-xs font-semibold xs:hidden">View</span>
+					<svg
+						className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0"
+						fill="none"
+						stroke="currentColor"
+						viewBox="0 0 24 24"
+					>
 						<path
 							strokeLinecap="round"
 							strokeLinejoin="round"
