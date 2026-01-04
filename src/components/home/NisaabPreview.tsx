@@ -109,20 +109,25 @@ const NisaabPreview = () => {
 	// Fetch Nisaab data when currency changes
 	useEffect(() => {
 		const fetchTodayNisaab = async () => {
+			if (!selectedCurrency) return;
+
 			try {
 				setIsLoading(true);
 				setError(null);
-				const response = await fetch(
-					`${API_URL}/nisaab/today?currency=${selectedCurrency}`
-				);
+				const url = `${API_URL}/nisaab/today?currency=${selectedCurrency}`;
+
+				const response = await fetch(url);
 
 				if (!response.ok) {
-					throw new Error('Failed to fetch Nisaab data');
+					throw new Error(`Failed to fetch Nisaab data: ${response.status}`);
 				}
 
 				const result = await response.json();
+
 				if (result.data) {
 					setNisaabData(result.data);
+				} else {
+					setError('No data received');
 				}
 			} catch (err) {
 				console.error('Error fetching Nisaab:', err);
@@ -132,11 +137,7 @@ const NisaabPreview = () => {
 			}
 		};
 
-		if (selectedCurrency) {
-			fetchTodayNisaab();
-			// Save to localStorage
-			localStorage.setItem('zaakiyah-website-currency', selectedCurrency);
-		}
+		fetchTodayNisaab();
 	}, [API_URL, selectedCurrency]);
 
 	// Calculate dropdown position when opening
@@ -144,9 +145,10 @@ const NisaabPreview = () => {
 		if (isCurrencyDropdownOpen && buttonRef.current) {
 			const rect = buttonRef.current.getBoundingClientRect();
 			// Use getBoundingClientRect for fixed positioning (viewport coordinates)
+			// For fixed positioning, we use viewport coordinates directly
 			setDropdownPosition({
-				top: rect.bottom + window.scrollY + 4, // 4px gap, add scroll offset for portal
-				left: rect.left + window.scrollX, // Align with button left edge, add scroll offset
+				top: rect.bottom + 4, // 4px gap
+				left: rect.left, // Align with button left edge
 			});
 		}
 	}, [isCurrencyDropdownOpen]);
@@ -154,7 +156,13 @@ const NisaabPreview = () => {
 	// Close dropdown when clicking outside
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent) => {
-			if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+			const target = event.target as Node;
+			// Check if click is outside both the button and the dropdown portal
+			if (
+				buttonRef.current &&
+				!buttonRef.current.contains(target) &&
+				!(target as Element).closest('[data-currency-dropdown]')
+			) {
 				setIsCurrencyDropdownOpen(false);
 			}
 		};
@@ -196,6 +204,8 @@ const NisaabPreview = () => {
 	const handleCurrencyChange = (currency: string) => {
 		setSelectedCurrency(currency);
 		setIsCurrencyDropdownOpen(false);
+		// Save to localStorage immediately
+		localStorage.setItem('zaakiyah-website-currency', currency);
 	};
 
 	if (isLoading) {
@@ -274,6 +284,7 @@ const NisaabPreview = () => {
 									{isCurrencyDropdownOpen &&
 										createPortal(
 											<div
+												data-currency-dropdown
 												className="fixed bg-white dark:bg-slate-800 rounded-lg shadow-xl border-2 border-slate-200 dark:border-slate-700 max-h-64 overflow-y-auto min-w-[200px]"
 												style={{
 													zIndex: 999999,
